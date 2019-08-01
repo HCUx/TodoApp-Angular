@@ -9,8 +9,6 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoComponent } from './todos/todo/todo.component';
 import { TodoService } from './shared/todo.service';
-import { environment } from '../environments/environment';
-import { DepartmentService } from './shared/department.service';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
@@ -48,7 +46,7 @@ import {EventEmitterService} from './shared/EventEmitterService';
     FormsModule,
     RouterModule.forRoot(routing, {onSameUrlNavigation: 'reload'})
   ],
-  providers: [EventEmitterService, TodoService, TodoItemService, DepartmentService,
+  providers: [EventEmitterService, TodoService, TodoItemService,
     DatePipe, AuthGuard, AuthenticationService, AlertService, UserService],
   bootstrap: [AppComponent],
   entryComponents: [TodoComponent, TodoItemComponent]

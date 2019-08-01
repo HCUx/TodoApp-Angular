@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
 
 import {TodoService} from '../../shared/todo.service';
-import {DepartmentService} from '../../shared/department.service';
 import {NotificationService} from '../../shared/notification.service';
 import {EventEmitterService} from '../../shared/EventEmitterService';
 
@@ -15,7 +14,6 @@ export class TodoComponent implements OnInit {
 
   constructor(private eventEmitterService: EventEmitterService ,
               public service: TodoService,
-    private departmentService: DepartmentService,
     private notificationService: NotificationService,
     public dialogRef: MatDialogRef<TodoComponent>) { }
 

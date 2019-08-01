@@ -2,7 +2,6 @@ import {TodoComponent} from '../todo/todo.component';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TodoService} from '../../shared/todo.service';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
-import {DepartmentService} from '../../shared/department.service';
 import {NotificationService} from '../../shared/notification.service';
 import {Todo} from '../../_models/todo';
 import {Router} from '@angular/router';
@@ -17,10 +16,9 @@ export class TodoListComponent implements OnInit {
 
   constructor(private route: Router,
               private service: TodoService,
-              private departmentService: DepartmentService,
               private dialog: MatDialog,
               private notificationService: NotificationService,
-              private eventEmitterService: EventEmitterService,) { }
+              private eventEmitterService: EventEmitterService) { }
 
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = ['title', 'createdAt', 'actions'];
@@ -30,10 +28,10 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.LoadAllTodoLists();
-    if (this.eventEmitterService.subsVar == undefined) {
+    if (this.eventEmitterService.subsVar === undefined) {
       this.eventEmitterService.subsVar = this.eventEmitterService.
       invokeComponentFunction.subscribe((name: string) => {
-        if (name == 'loadtodolist') {
+        if (name === 'loadtodolist') {
           this.LoadAllTodoLists();
         }
       });
@@ -89,7 +87,7 @@ export class TodoListComponent implements OnInit {
         this.listData.paginator = this.paginator;
         this.listData.filterPredicate = (data, filter) => {
           return this.displayedColumns.some(ele => {
-            return ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1;
+            return ele !== 'actions' && data[ele].toLowerCase().indexOf(filter) !== -1;
           });
         };
       });
