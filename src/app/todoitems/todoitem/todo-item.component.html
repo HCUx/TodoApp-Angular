@@ -1,0 +1,49 @@
+<mat-toolbar>
+  <span>{{service.form.controls['id'].value?"İtem Düzenle":"Yeni İtem"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="id">
+        <mat-form-field>
+          <input formControlName="title" matInput placeholder="Başlık*">
+          <mat-error>Zorunlu Alan.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="desc" matInput placeholder="Açıklama*">
+          <mat-error>Zorunlu Alan.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="deadline" matInput [matDatepicker]="picker" placeholder="Teslim Tarihi">
+          <mat-error>Tarih Zorunlu</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-checkbox formControlName="completed">Tamamlanma?</mat-checkbox>
+        </div>
+        <mat-form-field>
+          <mat-select formControlName="linkedItemId" placeholder="Bağlı İtem">
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let linkeditem of service.array">
+              <mat-option value="{{linkeditem.id}}"> {{linkeditem.title}}</mat-option>
+            </ng-container>
+          </mat-select>
+        </mat-form-field>
+      <div class="controles-container">
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Gönder</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Temizle</button>
+        </div>
+      </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
