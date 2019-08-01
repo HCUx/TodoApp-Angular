@@ -26,7 +26,6 @@ export class TodoItemComponent implements OnInit {
   onSubmit() {
     if (this.service.form.valid) {
       if (!this.service.form.get('id').value) {
-        console.log(this.service.form.value);
         this.service.insertTodoItem(this.service.form.value).subscribe(res => {
         if (res) {
           this.notificationService.success(':: Ekleme başarılı');

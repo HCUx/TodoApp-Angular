@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -63,7 +63,6 @@ export class TodoItemService {
   }
 
   populateForm(todolist) {
-    console.log(todolist);
     this.form.setValue(todolist);
   }
 }
