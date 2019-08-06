@@ -1,3 +1,9 @@
+Video Tutorial : https://www.youtube.com/watch?v=FLEa0OLW5j0
+ 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=FLEa0OLW5j0
+" target="_blank"><img src="http://img.youtube.com/vi/FLEa0OLW5j0/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="500" height="400" border="10" /></a>
+
 # CompleteAngularMaterialApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
